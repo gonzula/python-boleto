@@ -601,6 +601,15 @@ class BoletoPDF(object):
             y + self.space,
             valor_documento
         )
+
+        acrescimo = self._formataValorParaExibir(
+            boleto_dados.acrescimo
+        )
+        self.pdf_canvas.drawRightString(
+            self.width - 2 * self.space,
+            y + self.space - 25.9 * mm,
+            acrescimo
+        )
         self.pdf_canvas.setFont('Helvetica', self.font_size_title)
 
         # Linha horizontal com primeiro campo Data documento
